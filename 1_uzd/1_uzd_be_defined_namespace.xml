@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<autobusu_parkas xmlns="http://www.grma3240.lt/autobusu_parkas"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.grma3240.lt/autobusu_parkas 2_uzd.xsd">	
+	<info>Imones pavadinimas:<pavadinimas>UAB Vilniaus Viešasis Transportas</pavadinimas></info>
+	<transporto_priemones>
+		<autobusas id="TP1" tipas="tarpmiestinis">
+			<pagaminimo_data>2003-04-23</pagaminimo_data>
+			<marke>Iveco</marke>
+			<marsrutas>3</marsrutas>
+			<kuro_tipas>benzinas</kuro_tipas>
+			<vid_kuro_sanaudos matavimo_tipas="l/km">30.2</vid_kuro_sanaudos>
+			<vairuotojas ref="v1"/> 
+		</autobusas>
+		<autobusas id="TP2" tipas="tarpmiestinis">
+			<pagaminimo_data>2007-10-13</pagaminimo_data>
+			<marke>MAN</marke>
+			<marsrutas>1</marsrutas>
+			<kuro_tipas>dyzelis</kuro_tipas>
+			<vid_kuro_sanaudos matavimo_tipas="l/km">29.5</vid_kuro_sanaudos>
+			<vairuotojas ref="v3"/> 
+		</autobusas>
+		<autobusas id="TP3" tipas="miesto">
+			<pagaminimo_data>2010-09-04</pagaminimo_data>
+			<marke>Volvo</marke>
+			<marsrutas>2G</marsrutas>
+			<kuro_tipas>dyzelis</kuro_tipas>
+			<vid_kuro_sanaudos matavimo_tipas="l/km">31.7</vid_kuro_sanaudos>
+			<vairuotojas ref="v3"/> 
+		</autobusas>
+		<mikroautobusas id="TP4" tipas="miesto">
+			<pagaminimo_data>2010-09-04</pagaminimo_data>
+			<marke>Volvo</marke>
+			<marsrutas>2G</marsrutas>
+			<kuro_tipas>dyzelis</kuro_tipas>
+			<!--kuro sanaudos 100 km-->
+			<vid_kuro_sanaudos>31.7</vid_kuro_sanaudos>
+			<vairuotojas ref="v2"/> 
+		</mikroautobusas>
+		<troleibusas id="TP5" tipas="miesto">
+			<pagaminimo_data>2010-09-04</pagaminimo_data>
+			<marke>Volvo</marke>
+			<marsrutas>2G</marsrutas>
+			<kuro_tipas>dyzelis</kuro_tipas>
+			<!--kuro sanaudos 100 km-->
+			<vid_kuro_sanaudos>31.7</vid_kuro_sanaudos>
+			<vairuotojas ref="v2"/> 
+		</troleibusas>
+	</transporto_priemones>
+	<darbuotojai >
+		<vairuotojas id="v1">
+			<vardas>Leonidas</vardas>
+			<pavarde>Antonovičius</pavarde>
+			<gimimo_data>1986-07-14</gimimo_data>
+			<AK lytis="vyras">38607143456</AK>
+			<teisiu_kategorijos>AM B1 B D1 D</teisiu_kategorijos>
+		</vairuotojas>
+		<vairuotojas id="v2">
+			<vardas>Eleonora</vardas>
+			<pavarde>Mažeikienė</pavarde>
+			<gimimo_data>1989-12-01</gimimo_data>
+			<AK lytis="moteris">48912017382</AK>		
+			<teisiu_kategorijos>AM B1 B D1 D</teisiu_kategorijos>
+		</vairuotojas>
+		<vairuotojas id="v3">
+			<vardas>Mantas</vardas>
+			<pavarde>Gutaravičius</pavarde>
+			<gimimo_data>1979-11-04</gimimo_data>
+			<AK lytis="vyras">37911046682</AK>
+			<teisiu_kategorijos>AM B1 B D1 D T</teisiu_kategorijos>
+		</vairuotojas>
+	</darbuotojai>
+</autobusu_parkas>

@@ -1,0 +1,67 @@
+﻿XPath (0.5 balo) Savo sukurtam XML dokumentui:
+
+1. Pasirinkti savo XML dokumente vieną žymę (turinčią bent vieną protėvį, ir bent vieną anūką), parašyti XPath kelią,
+   unikaliai nueinantį prie tos žymės, ir prie to kelio prirašyti dar vieną žingsnį, naudojant šias ašis: ancestor, 
+   descendant, following-sibling, preceding-sibling, following, preceding, attribute (po vieną pavyzdį kiekvienai ašiai), 
+   mokėti paaiškinti rezultatą
+   
+   žymė:transporto_priemones
+   kelias: //transporto_priemones[1]
+   //transporto_priemones/ancestor::*
+   //transporto_priemones/descendant::autobusas
+   //transporto_priemones/following-sibling::*
+   //autobusas/preceding-sibling::*
+   //transporto_priemones/following::*[2]
+   //transporto_priemones/preceding::*
+   //transporto_priemones/descendant::autobusas/attribute::*
+   
+2. Parašyti XPath kelią su predikatu, kurio viduje yra panaudotas XPath kelias (pvz.: rasti visas žymes A, kurių atributas 
+   x turi tokią pačią reikšmę kaip penktos dokumente žymės B atributas y; čia A, B, x, y pakeiskite į savo dokumento 
+   žymes/atributus), paaiškinti predikato veikimo principą.
+   
+   //vairuotojas[@id=//autobusas[marke="Iveco"]/vairuotojas/@ref]
+   //vairuotojas[//autobusas/marke = "Iveco"]
+	marke kuri maziausiai kuro
+	//
+
+3. Funkcijas count() ir sum() (pvz., suskaičiuoti, kiek yra tam tikrų žymių/atributų, susumuoti tam tikrų žymių turinį), 
+   gebėti paaiškinti, ką ir kodėl grąžina išraiška sum(//*)šiam XML dokumentui: <a><b>2</b><c>3</c></a> (dėstytojas pakeis XML dokumentą)
+   
+   sum(//vid_kuro_sanaudos)
+   count(//autobusas)
+   
+4. Operacijas <, =, + su skirtingų tipų operandais, ir paaiškinti, kaip apliekamas automatinis tipų konvertavimas (pvz. mokėti paaiškinti,
+   kaip apskaičiuojamas išraiškos 5 < "kuku" rezultatas).
+   
+   //autobusas[@id="1"]/marsrutas = 3
+   //autobusas[@id="3"]/vid_kuro_sanaudos + true()
+   (//vid_kuro_sanaudos)[1] < (//vid_kuro_sanaudos)[2]
+	"Jonas" < 3
+	true() < 3
+	true() = 4
+	true() = 1
+	4 + true()
+	"4.5" + true()	
+   
+5. Reikia parašyti trijų žingsnių XPath išraišką (turi būti naudojamas bent vienas predikatas ir dvi skirtingos ašys) ir į atsiskaitymą 
+   atsinešti nupieštas aibes, kurios sukuriamos kiekvieno žingsnio apdorojimo rezultate
+   
+   /descendant-or-self::autobusas/following-sibling::*[@id = 3]/child::*
+   
+6. Parašyti išraišką, su operatoriumi = arba != lyginančią:
+   6.1 aibę ir skaičių,
+   6.2 aibę ir eilutę,
+   6.3 aibę ir loginę reikšmę,
+   6.4 dvi aibes
+   bei mokėti paaiškinti visais atvejais atliekamus tipų konvertavimus
+   
+   6.1 //vid_kuro_sanaudos = 30.2
+   6.2 //vid_kuro_sanaudos = "30.20"
+   6.3 //vid_kuro_sanaudos != false()
+   6.4 //vid_kuro_sanaudos != //autobusas
+   
+7. Parašyti išraišką, su operatoriais <, > lyginančią dvi aibes ir mokėti paaiškinti atliekamus automatinius tipų konvertavimus
+  
+   //vid_kuro_sanaudos > (//vid_kuro_sanaudos)[1]/../following-sibling::*/vid_kuro_sanaudos
+   //autobusas < //darbuotojai
+	
