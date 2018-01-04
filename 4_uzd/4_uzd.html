@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="lt">
+	<head>
+		<title>UAP Utenos autobusų parkas</title>
+		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	</head>
+	<body>
+		<header>
+			<h1>EDITOR DEMO</h1>
+		</header>
+		<section id="headerSectoin">
+			<h2>UAP<span> Utenos autobusų parkas</span></h2>
+			<form id="colorForm">
+				<p>Keisti pavadinimo spalvą: <input type="color" id="colorInput" oninput="changeTitleColor(this.value)"></p>
+			</form>
+		</section>
+		<section>
+			<header><h2>Naujienos</h2></header>
+			<article class="naujiena">
+				<h3>Autobusų parkas pasipildė 5 naujais autobusais</h3>
+				<p>Data: <span id="newsSpan1">2017-08-31</span></p>
+				<p>Vilniaus miesto, kaip ir daugelio kitų užsienio didžiųjų miestų, automobilių stovėjimo politikos tikslas yra mažinti asmeninio transporto naudojimą, skatinti alternatyvius keliavimo būdus, efektyviau išnaudoti stovėjimo vietas, gerinti gyvenamąją aplinką ir gyvenimo kokybę. Vilniaus miesto patirtis rodo, kad esant nemokamam transporto priemonių stovėjimui automobiliai statomi chaotiškai, o aikštelių ar gatvių užpildymas viršija 100 proc. Tokiose vietose pradėjus rinkti vietinę rinkliavą užimtumas sumažėja iki tokio lygmens, kad tiek gyventojai, tiek ir kiti vairuotojai be didesnių sunkumų ir greičiau randa laisvą vietą savo automobiliui</p>
+				<button type="button" class="editBtn" onclick="editArticle(this)">Redaguoti</button>
+				<button type="button" class="deleteBtn" onclick="deleteArticle(this)">Ištrinti</button>
+			</article>
+			<article class="naujiena">
+				<h3>Keičiasi maršruto Utena-Vilnius išvykimo laikas</h3>
+				<p>Data: <span id="newsSpan2">2017-12-12</span></p>
+				<p>Susiję straipsniai: Palygino kainas Lietuvoje ir Lenkijoje: produktų sąrašas, su kuriuo svetur sutaupė kelis šimtus eurų  (771) Į lietuvių kalbą išversta reklama Lenkijoje sukelia šypseną  (13) Iš to vis vien daugiausiai išlošia pirkėjas – kelionė nekainuoja nei cento, o kainų skirtumas ženklus, todėl sutaupyti tikrai pavyks. Vištienos krūtinėlės po 2,31 Eur/kg, kiaulienos faršas 1,3 Eur/Kg (perkant didesnį kiekį ir pasiderėjus galima gaut po 1 Eur/kg), kumpis po 1,78 Eur/kg. Prekių limito nėra, galima pirkti sveiko proto ribose (urminei prekybai geriau rūpintis savo transportu). Kadangi mūsų valstybėje jau uždrausta ir viduriuoti, lenkai mus gelbėja ir parduoda populiariausių vaistų be recepto. Ar verta važiuoti? Tikrai taip, dėkojam kaimynams lenkams, kad jie taip rūpinasi mumis.
+				</p>
+				<button type="button" class="editBtn" onclick="editArticle(this)">Redaguoti</button>
+				<button type="button" class="deleteBtn" onclick="deleteArticle(this)">Ištrinti</button>
+			</article>
+			<article class="naujiena">
+				<h3>Keičiasi maršruto Utena-Vilnius išvykimo laikas</h3>
+				<p>Data: <span id="newsSpan3">2014-12-21</span></p>
+				<p>Taip, visi puikiai žino, kad mus ten apsipirkti veža ne šiaip sau –užsakovas „Vynoteka“ ir veža apsipirkti būtent į minėtą parduotuvę. Po jos kita stotelė – „Kauflandas“. Pirmoje parduotuvėje laiko limitas valanda, antrojoje – dvi. Kas spėja greitai ir gerai pažįsta miestą, gali spėt užbėgt ir į „Biedronką“. Tokiu būdu jie uždirba pelną iš mūsų. Bet juk uždirba ir „Maxima“,„IKI“ ar kitos parduotuvės Lietuvoje? Susiję straipsniai: Palygino kainas Lietuvoje ir Lenkijoje: produktų sąrašas, su kuriuo svetur sutaupė kelis šimtus eurų  (771) Į lietuvių kalbą išversta reklama Lenkijoje sukelia šypseną  (13) Iš to vis vien daugiausiai išlošia pirkėjas – kelionė nekainuoja nei cento, o kainų skirtumas ženklus, todėl sutaupyti tikrai pavyks. Vištienos krūtinėlės po 2,31 Eur/kg, kiaulienos faršas 1,3 Eur/Kg (perkant didesnį kiekį ir pasiderėjus galima gaut po 1 Eur/kg), kumpis po 1,78 Eur/kg. Prekių limito nėra, galima pirkti sveiko proto ribose (urminei prekybai geriau rūpintis savo transportu). Kadangi mūsų valstybėje jau uždrausta ir viduriuoti, lenkai mus gelbėja ir parduoda populiariausių vaistų be recepto. Ar verta važiuoti? Tikrai taip, dėkojam kaimynams lenkams, kad jie taip rūpinasi mumis.</p>
+				<button type="button" class="editBtn" onclick="editArticle(this)">Redaguoti</button>
+				<button type="button" class="deleteBtn" onclick="deleteArticle(this)">Ištrinti</button>
+			</article>
+			<article class="naujiena">
+				<h3>UAP direktorius atsistaydina iš darbo</h3>
+				<p>Data: <span id="newsSpan4">2017-11-28</span></p>
+				<p>Taip, visi puikiai žino, kad mus ten apsipirkti veža ne šiaip sau –užsakovas „Vynoteka“ ir veža apsipirkti būtent į minėtą parduotuvę. Po jos kita stotelė – „Kauflandas“. Pirmoje parduotuvėje laiko limitas valanda, antrojoje – dvi. Kas spėja greitai suktis ir gerai pažįsta miestą, gali spėt užbėgt ir į „Biedronką“. Tokiu būdu jie uždirba pelną iš mūsų. Bet juk uždirba ir „Maxima“, „IKI“ ar kitos parduotuvės Lietuvoje?</p>
+				<button type="button" class="editBtn" onclick="editArticle(this)">Redaguoti</button>
+				<button type="button" class="deleteBtn" onclick="deleteArticle(this)">Ištrinti</button>
+			</article>
+		</section>
+		<section id="editArticleSection">
+		<header><h2>Redaguoti naujieną</h2></header>
+			<form id="addNewsForm">
+				<p>Pavadinimas: <input type="text" id="newsTitle" name="newsTitle"> </p>
+				<p>Data: <input type="text" id="dateInput" name="date" oninput="validateDateInput(this.value)"> </p>
+				<textarea lang="lt" id="newsTxtArea" cols="80" rows="10"></textarea>
+				<p>
+					<button id="editNewsArticle" type="button" onclick="saveNewsArticleChanges()">Išsaugoti</button>
+					<button id="backNewsArticle" type="button" onclick="hideEditArticleSection()">Atšaukti</button>
+				</p>
+			</form>
+		</section>
+		<section class="table">
+				<header>
+					<h2>Tvarkaraščiai</h2>
+				</header>
+				<article>
+					<h3>Tarpmiestinių autobusų tvarkaraštis</h3>
+					<p><button id="displayBtn" onclick="displayButtonControl()"></button></p>
+					<table border="1" id="timetable">
+						<tbody>
+							<tr>
+								<th rowspan="3">Aikštelė</th>
+								<th rowspan="3">Maršrutas</th>
+								<th colspan ="2">Išvykimo laikas</th>
+							</tr>
+							<tr>
+								<th colspan="2">Savaitės diena</th>
+							</tr>
+							<tr>
+								<th>Darbo diena(P,A,T,K,Pn)</th>
+								<th>Savaitgalis(Š, S)</th>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>Vilnius per Molėtus</td>
+								<td>6:00 8:00 10:00 12:00 14:00 18:00 20:00</td>
+								<td>8:00 10:00 12:00 14:00</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>Kaunas per Ukmergę</td>
+								<td>6:00 8:00 10:00 12:00 14:00 18:00 20:00</td>
+								<td>8:00 12:00 14:00</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>Šiauliai</td>
+								<td>6:00 10:00 12:00 18:00</td>
+								<td>8:00 12:00 14:00</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>Zarasai per Dusetas, Antazavę</td>
+								<td>16.55</td>
+								<td>16.55</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>Klaipėda per Palangą</td>
+								<td>6:00</td>
+								<td>6:00</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>Klaipėda per Kretingą</td>
+								<td>6:00</td>
+								<td>6:00</td>
+							</tr>
+							<tr class="editRow">
+								<td><input type="text" id="gateInput" name="gate" oninput="validatePositiveIntegerInput(this)"></td>
+								<td><input type="text" id="routeInput" oninput="validateTextInput(this)"></td>
+								<td><input type="text" id="workDaysTimeInput" oninput="validateWorkday(this)"></td>
+								<td><input type="text" id="weekendDaysTimeInput" oninput="validateWeekend(this)"></td>
+							</tr>
+						</tbody>
+					</table>
+					<form id="timetableForm" action="">
+					<p>
+						<button id="submitBtn" type="button">Pridėti</button>
+						<button id="hideTimetableFormBtn" onclick="hideTimetableForm()" type="button">Atšaukti</button>
+					</p>
+			</form>
+				</article>
+		</section>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="4_uzd.js"></script>
+	</body>
+</html>
