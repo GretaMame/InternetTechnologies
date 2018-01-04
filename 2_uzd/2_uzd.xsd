@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--9 REIKALAVIMAS(visi tipai priklauso mano deklaruotam namespace)-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+			xmlns="http://www.grma3240.lt/autobusu_parkas"
+			xmlns:mano="http://www.grma3240.lt/autobusu_parkas"
+			targetNamespace="http://www.grma3240.lt/autobusu_parkas"
+			elementFormDefault="qualified">
+
+	<!-- targetNamespace- pasako kokio namespace bus globalus elementai ri atributai
+	
+	Type definitions, element declarations, and attribute declarations do not share 
+	the same symbol space for names. So, it is possible to have a schema where a type 
+	definition, global declaration, and local declaration share a single name. This 
+	practice is extremely confusing and should be avoided
+	
+	unqualified (reikšmė pagal nutylėjimą) – lokalios žymės XML dokumente privalo būti
+	nekvalifikuotos (t.y., be vardų srities prefikso, ir joms neturi galioti vardų 
+	sritis pagal nutylėjimą)
+	
+	qualified – lokalios žymės XML dokumente privalo būti su vardų srities prefiksu
+	arba joms turi galioti vardų sritis pagal nutylėjimą -->	
+	
+	<!--SAKNINE ZYME-->
+	<!--8 REIKALAVIMAS(keyref)-->
+	<xs:element name="autobusu_parkas" type="AP_Type">
+		<xs:key name="TP_id_restriction">
+			<xs:selector xpath="mano:transporto_priemones/*"/>
+			<xs:field xpath="@id"/>
+		</xs:key>
+		<xs:key name="darbuotojo_id_restriction">
+			<xs:selector xpath="mano:darbuotojai/mano:vairuotojas"/>
+			<xs:field xpath="@id"/>
+		</xs:key>
+		<xs:keyref name="vairuotojas_X_autobusas" refer="darbuotojo_id_restriction">
+			<xs:selector xpath="mano:transporto_priemones/*/mano:vairuotojas"/>
+			<xs:field xpath="@ref"/>
+		</xs:keyref>
+	</xs:element>
+	<!--1 LVL TIPAS-->
+	<xs:complexType name = "AP_Type">
+		<xs:sequence>
+			<xs:element name="info" type="info_Type"/>
+			<xs:element name="transporto_priemones" type="TP_Type"/>
+			<xs:element name="darbuotojai" type="darbuotojai_Type"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--2.1 LVL TIPAS-->
+	<!--6 REIKALAVIMAS(complexType su misriu turiniu)-->
+	<xs:complexType name="info_Type" mixed="true">
+		<xs:sequence>
+			<xs:element name="pavadinimas" type="xs:string"/>
+			<xs:element name="imones_kodas" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="adresas" type="xs:string" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--2.2 LVL TIPAI-->
+	<!--7 REIKALAVIMAS(choice)-->
+	<xs:complexType name="TP_Type">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="autobusas" type="transporto_priemones_su_id_Type"/>
+			<xs:element name="mikroautobusas" type="transporto_priemones_su_id_Type"/>
+			<xs:element name="troleibusas" type="troleibusas_Type"/>
+		</xs:choice>
+	</xs:complexType>
+	<!--2.3 LVL TIPAS-->
+	<xs:complexType name="darbuotojai_Type">
+		<xs:sequence>
+			<xs:element name="vairuotojas" type="darbuotojas_Type" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--2.2 LVL TP STRUKTURA-->
+	<xs:complexType name="transporto_priemones_Type">
+		<xs:sequence>
+			<xs:element name="pagaminimo_data" type="xs:date"/>
+			<xs:element name="marke" type="xs:string"/>
+			<xs:element name="marsrutas" type="xs:string"/>
+			<xs:element name="kuro_tipas" type="kuro_tipas_Type"/>
+			<xs:element name="vid_kuro_sanaudos" type="vid_kuro_sanaudos_su_atributu"/>
+			<xs:element name="vairuotojas" type="TP_vairuotojas_Type"/>
+		</xs:sequence>
+		<xs:attribute name="tipas" type="tipas_Type" use="required"/>
+	</xs:complexType>
+	
+	<!--TP su ID-->
+	<!--4.2 REIKALAVIMAS(complexType su complexContent extension)-->
+	<xs:complexType name="transporto_priemones_su_id_Type">
+		<xs:complexContent>
+			<xs:extension base="transporto_priemones_Type">
+				<xs:attribute name="id" type="TP_id_Type"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<!--TP TROLEIBUSAS-->
+	<!--4.1 REIKALAVIMAS(complexType su complexContent restriction)-->
+	<xs:complexType name="troleibusas_Type">
+		<xs:complexContent>
+			<xs:restriction base="transporto_priemones_su_id_Type">
+			<xs:sequence>
+				<xs:element name="pagaminimo_data" type="xs:date"/>
+				<xs:element name="marke" type="xs:string"/>
+				<xs:element name="marsrutas" type="xs:string"/>
+				<xs:element name="kuro_tipas" type="troleibuso_kuro_tipas"/>
+				<xs:element name="vid_kuro_sanaudos" type="vid_kuro_sanaudos_su_atributu"/>
+				<xs:element name="vairuotojas" type="TP_vairuotojas_Type"/>
+		</xs:sequence>
+		<xs:attribute name="tipas" type="tipas_Type" use="required" fixed="miesto"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<!--TP ATRIBUTU TIPAI-->
+	<xs:simpleType name="tipas_Type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="miesto"/>
+			<xs:enumeration value="tarpmiestinis"/>
+			<xs:enumeration value="tarptautinis"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="TP_id_Type">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="TP[0-9]{1,}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!--TP ZYMIU TIPU DEKLARAVIMAS-->
+	<xs:complexType name="TP_vairuotojas_Type">
+		<xs:attribute name="ref" type="darbuotojo_id_Type"/>
+	</xs:complexType>
+	
+	<xs:simpleType name="darbuotojo_id_Type">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="v[0-9]{1,}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="vid_kuro_sanaudos_Type">
+		<xs:restriction base="xs:decimal">
+			<xs:minExclusive value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!--3.2 REIKALAVIMAS(complexType su simpleContent extension)-->
+	<xs:complexType name="vid_kuro_sanaudos_su_atributu">
+		<xs:simpleContent>
+			<xs:extension base="vid_kuro_sanaudos_Type">
+				<xs:attribute name="matavimo_tipas" type="matavimo_tipas_Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	
+	<xs:simpleType name="matavimo_tipas_Type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="km/l"/>
+			<xs:enumeration value="l/km"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="kuro_tipas_Type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="benzinas"/>
+			<xs:enumeration value="dyzelis"/>
+			<xs:enumeration value="benzinas/dujos"/>
+			<xs:enumeration value="dyzelis/dujos"/>
+			<xs:enumeration value="benzinas/elektra"/>
+			<xs:enumeration value="dyzelis/elektra"/>
+			<xs:enumeration value="elektra"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="troleibuso_kuro_tipas">
+		<xs:restriction base="kuro_tipas_Type">
+			<xs:enumeration value="elektra"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!--2.3 LVL DARBUOTOJU STRUKTURA-->
+	<xs:complexType name="darbuotojas_Type">
+		<xs:sequence>
+			<xs:element name="vardas" type="xs:string"/>
+			<xs:element name="pavarde" type="xs:string"/>
+			<xs:element name="gimimo_data" type="xs:date"/>
+			<xs:element name="AK" type="AK_Type"/>
+			<xs:element name="teisiu_kategorijos" type="teisiu_list_Type"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="darbuotojo_id_Type"/>
+	</xs:complexType>
+	
+	<!--DARBUOTOJU ZYMIU TIPU APIBREZIMAS-->
+	<xs:complexType name="AK_su_lyties_atributu">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="lytis" type="lytis_Type" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	
+	<!--5 REIKALAVIMAS(apribojimo principas)-->
+	<!--
+	<xs:complexType>
+		<xs:simpleContent>
+			<xs:restriction base="AK_su_lyties_atributu">
+				<xs:attribute name="lytis" type"lytis_Type" use="prohibited"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	-->
+	
+	<xs:simpleType name="lytis_Type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="moteris"/>
+			<xs:enumeration value="vyras"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!--3.1 REIKALAVIMAS(complex type su simpleContent restriction)-->
+	<xs:complexType name="AK_Type">
+		<xs:simpleContent>
+			<xs:restriction base="AK_su_lyties_atributu">
+				<xs:pattern value="[3-6]{1}[0-9]{10}"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	
+	<!--2 REIKALAVIMAS(prasmingas sarasas)-->
+	<xs:simpleType name="teisiu_list_Type">
+		<xs:list itemType="teisiu_kat_Type"/>
+	</xs:simpleType>
+	
+	<!--1 REIKALAVIMAS(paprastas tipas apribojantis standartini tipa-->
+	<xs:simpleType name="teisiu_kat_Type">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A,B,C,D,T]{1}[E,1,2,M]?(E)?"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+</xs:schema> 

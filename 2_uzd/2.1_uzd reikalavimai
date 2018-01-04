@@ -1,0 +1,23 @@
+Reikia parašyti XML Schema dokumentą, apibrėžiantį jūsų sukurto XML 
+dokumento struktūrą, kuriame būtų jūsų pačių susikurti:
+
++	1. Paprastas tipas, apribojantis kokį nors Schema standartinį tipą,
++	2. Prasmingas sąrašo tipas (list type). Neprasmingo sąrašo tipo 
+	pavyzdys: sąrašas iš string tipo elementų. Neprasmingas todėl, 
+	kad jį galima pakeisti vienu paprastu tipu: string.
++	3. Sudėtingi tipai su paprastu turiniu,
+	//cia reikes is paprasto 
++		3.1 išvesti apribojimu (restriction) iš jūsų (ne XML Schema)
+		bazinio tipo	
++		3.2 išvesti praplėtimu (extension) iš jūsų bazinio tipo
++	4. Sudėtingi tipai su sudėtingu turiniu,
++		4.1 išvesti apribojimu (restriction) iš jūsų bazinio tipo
++		4.2 išvesti praplėtimu (extension) iš jūsų bazinio tipo+
++	5. Pademonstruoti apribojimo principą - parodyti pavyzdį, kai 
+	apribojimo principas pažeistas, ir žinoti, kaip reikia pataisyti 
+	pavyzdį,
++	6. Sudėtingas tipas su mišriu turiniu,
++	7. choice valdymo struktūra,
++	8. Bent viena nuoroda (keyref) į unikalumo ribojimą (unique) arba 
+	raktą (key)
++	9. Visi jūsų susikurti tipai turi priklausyti jūsų vardų sričiai

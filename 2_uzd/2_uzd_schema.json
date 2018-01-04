@@ -1,0 +1,85 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"definitions": {
+		"transporto_priemones":{
+			"type":"array",
+			"items":{
+				"oneOf":[
+					{"$ref":"#/definitions/lengvasis_automobilis"},
+					{"$ref":"#/definitions/autobusas"}
+				]
+			}
+		},
+		
+		"transporto_priemone":{
+			"type":"object",
+			"properties":{
+				"id":{"$ref":"#/definitions/id"},
+				"marke":{"type":"string"},
+				"pagaminimo_data":{"$ref":"#/definitions/data"},
+				"kuro_tipas":{"$ref":"#/definitions/kuro_tipas"},
+				"kuro_sanaudos_l/100km":{"$ref":"#/definitions/kuro_sanaudos"},
+				"kuro_sanaudos_km/l":{"$ref":"#/definitions/kuro_sanaudos"}
+			},
+			"required":["id","marke","pagaminimo_data","kuro_tipas"],
+			"anyOf":[
+				{"required":["kuro_sanaudos_l/100km"]},
+				{"required":["kuro_sanaudos_km/l"]}
+			]
+		},
+		"autobusas":{
+			"allOf":[
+				{"$ref":"#/definitions/transporto_priemone"},
+				{
+					"properties":{
+						"vietu_skaicius":{"$ref":"#/definitions/autobuso_vietu_skaicius"}
+					},
+					"required":["vietu_skaicius"]
+				}
+			]
+		},
+		"lengvasis_automobilis":{
+			"allOf":[
+				{"$ref":"#/definitions/transporto_priemone"},
+				{
+					"properties":{
+						"vietu_skaicius":{"$ref":"#/definitions/automobilio_vietu_skaicius"}	
+					},
+					"required":["vietu_skaicius"]
+				}
+			]
+		},
+		"kuro_tipas":{
+			"type":"string",
+			"enum":["benzinas", "dyzelis", "elektra", "dujos", "hibridas"]
+		},
+		"data":{
+			"type":"string",
+			"pattern":"[1-2][9,0,1][0-9]{2}-[0,1][0-9](-[0-2][0-9])?"
+		},
+		"kuro_sanaudos":{
+			"type":"number",
+			"minimum":0,
+			"exclusiveMinimum":true
+		},
+		"id":{
+			"type":"string",
+			"pattern":"TP[0-9]{1,}"
+		},
+		"autobuso_vietu_skaicius":{
+			"type":"number",
+			"minimum":20,
+			"exclusiveMinimum": false
+		},
+		"automobilio_vietu_skaicius":{
+			"type":"number",
+			"minimum":2,
+			"maximum":8,
+			"exclusiveMaximum":false
+		}
+	},
+	"type":"object",
+	"properties":{
+		"transporto_priemones":{"$ref":"#/definitions/transporto_priemones"}
+	}
+}

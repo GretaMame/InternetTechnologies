@@ -1,0 +1,16 @@
++	1. Panaudoti bent 4 skirtingi duomenų tipai
+		//string, number, object, list
++	2. Panaudotas enum raktažodis
+		//easy 
++	3. Panaudoti bent 4 validacijai skirti raktažodžiai
+		//easy
++	4. Panaudotos bent 2 reguliarios išraikos
+		//easy AK, id ir tt
++	5. Realizuotas schemų praplėtimas naudojantis allOf, 
+	anyOf, oneOf raktažodžiais
++		5.1 allOf
++		5.2 anyOf //gali atitikt viena ir daugiau
++		5.3 oneOf //gali atitikt tik viena
++	6. Realizuotas schemų pakartotinis panaudojimas: definitions 
+	ir $ref raktažodžiai
+	

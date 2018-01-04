@@ -1,0 +1,29 @@
+{
+	"transporto_priemones":[
+		{
+			"id":"TP1",
+			"marke":"volvo",
+			"pagaminimo_data":"2000-09",
+			"kuro_tipas":"dyzelis",
+			"kuro_sanaudos_l/100km":8.4,
+			"vietu_skaicius":5
+		},
+		{
+			"id":"TP2",
+			"marke":"Toyota",
+			"pagaminimo_data":"2015-09-23",
+			"kuro_tipas":"dyzelis",
+			"kuro_sanaudos_l/100km":5.5,
+			"vietu_skaicius":4
+		},
+		{
+			"id":"TP3",
+			"marke":"MAN",
+			"pagaminimo_data":"2014-11-07",
+			"kuro_tipas":"benzinas",
+			"kuro_sanaudos_l/100km":23.5,
+			"kuro_sanaudos_km/l":5,
+			"vietu_skaicius":48
+		}
+	]
+}
