@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="lt">
+	<head>
+		<title>UAP Utenos autobusų parkas</title>
+		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="3_uzd.css">
+	</head>
+	<body>
+		<header>
+			<h1>UAP
+			<span>Utenos autobusų parkas</span></h1>
+		</header>
+		<nav>
+			<ul id="nav">
+				<li><a href="file:///C:/Users/greta/MIF/5_semestras/IT/3_uzd/3_1_uzd.html">Pagrindinis</a></li>
+				<li><a href="file:///C:/Users/greta/MIF/5_semestras/IT/3_uzd/3_2_uzd.html">Tvarkaraščiai</a></li>
+				<li><a href="#">Darbuotojai</a></li>
+				<li><a href="#">Informacija</a></li>
+			</ul>
+			<img src="http://preuhotra.leogems.org/betrav1.jpg" alt="logotipas">
+		</nav>
+		<section>
+			<header>
+					<h2>Darbuotojo anketa</h2>
+			</header>
+			<form name="darbuotojo_anketa" action="javascript:alert('Ačiū! Su jumis susisieksime')">
+					<p>Vardas: <input type="text" name="vardas" required> </p>
+					<p>Pavardė: <input type="text" name="pavarde" required> </p>						<p>Lytis: <label><input type="radio" name="r1" value="M" required>Moteris</label>
+ 				    <label><input type="radio" name="r1" value="V" required>Vyras</label>						</p>
+					<p>Gimimo data: <input type="date" id="d1"></p>
+					<p>Telefono numeris:
+					<select name="tvarkarascioMeniu">
+						<option selected value="ltNumb" label="+370">00370</option>
+						<option value="ukNumb" label="+44">0044</option>
+						<option value="nlNumb" label="+33">0033</option>
+						<option value="ieNumb" label="+323">00323</option>
+						<option value="nlNumb" label="+1">001</option>
+					</select>
+					<input type="tel" name="telNr" required>
+					</p>
+					<p>Elektroninis paštas: <input type="email" placeholder="pavyzdys@pavyzdys.lt" required></p>
+					<p>Gyvenimo aprašymas: <input type="file" id="f1" required>
+					<p><input type="reset" value="Išvalyti"> 
+					<input type="submit" value="Patvirtinti"></p>
+			</form>
+		</section>
+		<aside id="ad2">
+			<img src="http://www.bluekitchen.com.au/images/leftbanner7.jpg" alt="reklama">
+		</aside>
+		<footer>
+			2017 &copy; gretaap.com
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+HTML ir CSS (1 balas, atsiskaityti iki gruodžio 3 d.)
+
+Reikia parašyti HTML puslapį, kuriame būtų naudojamos tik 
+struktūrinės žymės (išvardintos HTML5 dokumente). Negalima 
+naudoti puslapio stilių nusakančių žymių bei atributų (color,
+font, size, ir panašiai). Stiliaus aprašymui reikia sukurti 
+stilių lentelę, aprašytą atskirame faile. Turi būti patenkinti 
+šie reikalavimai:
+
+	1. Dokumentas privalo būti validus HTML5 dokumentas. Validatoriai:
+		1.1 http://validator.nu
+		1.2 http://validator.w3.org
++	2. Elementų išdėstymas dokumente privalo būti sumodeliuotas naudojantis
+	   semantiniais HTML5 elementais (header, nav, section, articile, ...)
+	3. Būtina pademonstruoti šių HTML elementų panaudojimą:
++		3.1 Skyrius ir paragrafas
++		3.2 Paveiksliukas
++		3.3 Nuoroda į kitą puslapį
++		3.4 Lentelė su prasmingais panaudotais colspan ir rowspan atributais
++		3.5 Numeruotas ir/ar nenumeruotas sąrašas
++		3.7 Duomenų įvedimo forma, kurioje prasmingai panaudoti bent 5 
+			skirtingų tipų įvedimo laukai. Pademonstruoti privalomų laukų 
+			validaciją.
++		3.8 Sąrašo (pasirinkimo) komponentas
+	4. Reikia panaudoti šiuos CSS selektorius (ir mokėti paaiškinti, kuo 
+	   pirmas skiriasi nuo antro, bei ką jie visi reiškia):
++		4.1 Įpėdinio (descendant);
++		4.2 Vaiko (child);
++		4.3 Atributo (attribute);
++		4.4 Klasės (class);
++		4.5 ID
++	5. Sukurtoje stilių lentelėje turi būti savybių paveldėjimo pavyzdys, t.y.,
+	   būtina prasmingai panaudoti raktinį žodį inherit (ištrynus šį raktinį žodį, 
+	   vaizdas ekrane turi pasikeisti) ir žinoti, ką jis reiškia.
++	6. Sukurtoje stilių lentelėje turi būti kaskadų mechanizmo pavyzdys, būtina 
+	   prasmingai panaudoti raktinį žodį !important (ištrynus šį raktinį žodį, 
+	   vaizdas ekrane turi pasikeisti), bei žinoti, ką jis reiškia ir kas yra tas 
+	   kaskadų mechanizmas.
++	7. Reikia panaudoti @media taisyklę, kurios pagalba naršyklė atsižvelgtų į 
+	   įrenginio, kuriame yra atvaizduojamas puslapis ekrano dydį ir atitinkimai
+	   pakeistų jo išdėstymą (Media Queries Level 3).
